@@ -1,4 +1,4 @@
-import  { Component } from 'react';
+// import  { Component } from 'react';
 import axios from 'axios'
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
@@ -11,11 +11,12 @@ function Admission() {
     // storing the api data using dispatch and axios
     const dispatch = useDispatch()
     const storeData = async () => {
-        const data = await axios.get('http://localhost:3004/grades')
+        const data = await axios.get('https://my-json-server.typicode.com/ashishsalunkhe/react-redux-json-api/grades')
         dispatch(setData(data))
     }
     useEffect(() => {
         storeData()
+        // eslint-disable-next-line 
     }, [])
 
     // getting data from store using useSelector hook
@@ -50,47 +51,6 @@ function Admission() {
 
 
 
-// class Admission extends Component{
-//     constructor(props){
-//         super(props)
-
-//         this.state = {
-//             grades: []
-//         }
-//     }
-
-//     componentDidMount(){
-//         axios.get("http://localhost:3004/grades")
-//         .then(response=>{
-//             console.log(response)
-//             this.setState( {grades: response.data})
-//         })
-//         .catch(error => {
-//             console.log(error)
-//         } )
-//     }
-
-//     render(){
-//         const {grades} = this.state
-
-//         return(
-//             <div className="container">
-//                 <div className="col-sm-6 offset-md-3 text-center">
-//                 <h1>Learning Curve Public School</h1>
-//                 <img className="img-fluid" src={process.env.PUBLIC_URL + "myschool.jpg"} alt="School" width="500px" />
-//             </div>
-//             <h2>Grades Available</h2>
-//                 {
-//                     grades && grades.map((value, key) => (
-//                         <li key={key}>
-//                             <Link to={`/admission/allgrade/${value.category}`}>{value.category}</Link>
-//                         </li>
-//                     ))
-//                 }
-//             </div>
-//         )
-//     }
-// }
 
 
 

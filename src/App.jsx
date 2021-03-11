@@ -17,6 +17,7 @@ function App() {
     <div className="App">
        <Provider store={store}>
       <BrowserRouter>
+            
         <Header />
         <Switch>
           <Route exact path='/' component={Home} />
